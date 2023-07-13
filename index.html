@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agent Help</title>
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(window)
+            .scroll(function () {
+                var windscroll = $(window).scrollTop();
+                if (windscroll >= 90) {
+                    $(".header").addClass("fixed");
+                } else {
+                    $(".header").removeClass("fixed");
+                    $("nav a.active").removeClass("active");
+                    // $('nav a:first').addClass('active');
+                }
+            })
+            .scroll();
+
+        angular
+            .module("app", [])
+            .controller("mainCtrl", function ($scope, $http, $timeout) {
+                $scope.page = {
+                    year: new Date().getFullYear(),
+                    hamBgMenuOpened: false,
+                    navigateToRestaurantLogin: function () {
+                        window.location.href = "/login.html";
+                    },
+                };
+
+                $(".sticky-nav-tab").on("click", function (event) {
+                    if (this.hash !== "") {
+                        event.preventDefault();
+                        var hash = this.hash;
+                        $("html, body").animate(
+                            {
+                                scrollTop: $(hash).offset().top - 90,
+                            },
+                            1000
+                        );
+                        $scope.page.hamBgMenuOpened = false;
+                        $scope.$digest();
+                    }
+                });
+
+                $scope.contactUs = {
+                    form: { isAgreed: false },
+                    error: false,
+                    success: false,
+                    btnLoader: false,
+                    submit: function () {
+                        if ($scope.contactUsForm.$valid && this.form.isAgreed) {
+                            this.btnLoader = true;
+                            let params = {
+                                name: this.form.name,
+                                email: this.form.email,
+                                mobile_no: this.form.mobile,
+                                message: this.form.message,
+                            };
+                            // todo change end point
+                            $http
+                                .post(
+                                    "https://esista.herokuapp.com/welcome/generate_enquiry",
+                                    params,
+                                    {}
+                                )
+                                .then(
+                                    (result) => {
+                                        if (result.data.status === "error") {
+                                            this.error = true;
+                                            this.success = false;
+                                            this.resetMessages();
+                                        } else if (result.data.status === "success") {
+                                            this.error = false;
+                                            this.success = true;
+                                            this.btnLoader = false;
+                                            this.reset();
+                                            this.resetMessages();
+                                        } else {
+                                            this.error = true;
+                                            this.success = false;
+                                            this.resetMessages();
+                                        }
+                                    },
+                                    function () {
+                                        this.error = true;
+                                        this.success = false;
+                                        this.resetMessages();
+                                    }
+                                );
+                        }
+                    },
+                    reset: function () {
+                        this.form = { isAgreed: false };
+                        $scope.contactUsForm.$submitted = false;
+                        $scope.contactUsForm.$setUntouched();
+                    },
+                    resetMessages: function () {
+                        $timeout(() => {
+                            this.error = false;
+                            this.success = false;
+                        }, 2000);
+                    },
+                };
+
+                $scope.pricing = {
+                    plans: [{
+                        name: "Starters",
+                        saveUpTo: "10",
+                        price: "2000",
+                        features: [
+                            "Intelligent Dashboard",
+                            "3 Predesigned Templates",
+                            "Recipe and Nutrition data",
+                            "Customer feedback",
+                            "Monthly reports"
+                        ]
+                    }, {
+                        name: "Appetizers",
+                        saveUpTo: "15",
+                        price: "4000",
+                        features: [
+                            "5 Predesigned Templates",
+                            "Everything in starters",
+                            "Customized menu",
+                            "Daily reports",
+                            "Email Support"
+                        ]
+                    }, {
+                        name: "Main Course",
+                        saveUpTo: "20",
+                        price: "8000",
+                        features: [
+                            "Everything in Appetizers",
+                            "7 Predesigned Templates",
+                            "AI based suggestions",
+                            "Chat support",
+                            "1 Free Marketing consultation/Month"
+                        ]
+                    }],
+                    selected: null,
+                    onSelect: function (plan) {
+                        this.selected = plan;
+                    }
+                }
+            });
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RV1NF18VXY"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-RV1NF18VXY');
+    </script>
+</head>
+
+<body ng-app="app" ng-controller="mainCtrl" ng-class="{'overflow-hidden': page.hamBgMenuOpened }">
+    <h1>Agent Help</h1>
+</body>
+
+</html>

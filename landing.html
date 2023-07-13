@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Agent Help</title>
+
+        <base href="/"/>
+
+        <link rel="stylesheet" href="/css/base.css">
+
+        <script src="/lib/angular/angular.js"></script>
+        <script src="/lib/angular/angular-route.js"></script>
+        <script src="/lib/jquery-3.6.0.min.js"></script>
+
+        <script src="/env/vars.js"></script>
+
+        <script src="/app/helpers/utility.js"></script>
+        <script src="/app/helpers/constants.js"></script>
+
+        <script src="/app/app.main.js"></script>
+        <script src="/app/routes/admin.routes.js"></script>
+
+        <script src="/app/service/auth.service.js"></script>
+        <script src="/app/service/admin.service.js"></script>
+        <script src="/app/service/agent.service.js"></script>
+        <script src="/app/controller/main.controller.js"></script>
+        <script src="/app/routes/agent.routes.js"></script>
+        <!-- app\routes\agent.routes.js -->
+
+        <!--Admin-->
+        <script src="/app/controller/admin/user.controller.js"></script>
+        <script src="/app/controller/admin/users/form.controller.js"></script>
+        <script src="/app/controller/admin/profile/reset.password.controller.js"></script>
+        <script src="/app/controller/agent/intimation/list.controller.js"></script>
+        <script src="/app/controller/agent/intimationdetails/intimationdetail.controller.js"></script>
+        <script src="/app/controller/agent/profile/editprofile.controller.js"></script>
+    </head>
+    <body ng-app="AgentHelp" ng-cloak ng-controller="MainCtrl">
+        <div class="main-wrap">
+            <ng-include src="'/templates/admin/partials/_navigation.html'" ng-if="pageView.current == constants.ADMINISTRATIVE"></ng-include>
+            <ng-include src="'/templates/agent/partials/_navigation.html'" ng-if="pageView.current == constants.AGENT"></ng-include>
+            <ng-view></ng-view>
+
+            <!--Toast message's-->
+            <!-- info, warning, error, success -->
+            <div class="toast-msg {{ toast.type }}" ng-if="toast.type">
+                <span class="toast-icon toast-{{ toast.type }}-icon"></span>
+                <h4>{{ toast.message }}</h4>
+                <!--<span class="x-icon"></span>-->
+            </div>
+        </div>
+
+        <style>
+            [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+                display: none !important;
+            }
+        </style>
+    </body>
+</html>
