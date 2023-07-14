@@ -1,83 +1,86 @@
-<div class="content">
-    <div class="container height-100 flex-center">
-        <div class="loader loader-1" ng-if="userForm.pageLoader">
-            <div class="loader-outer"></div>
-            <div class="loader-inner"></div>
-        </div>
-        <div class="con-holder" ng-if="!userForm.pageLoader">
-            <div class="column-list flex-direction-column overflow-auto pad-20">
-                <div class="col-6 mar-b-20">
-                    <div class="form-section">
-                        <div class="form-group-head">
-                            <h3> {{ userForm.info.id ? 'Update User' : 'Add New User' }} </h3>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Otika - Admin Dashboard Template</title>
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="assets/css/app.min.css">
+  <link rel="stylesheet" href="assets/bundles/bootstrap-daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="assets/bundles/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
+  <link rel="stylesheet" href="assets/bundles/select2/dist/css/select2.min.css">
+  <link rel="stylesheet" href="assets/bundles/jquery-selectric/selectric.css">
+  <link rel="stylesheet" href="assets/bundles/bootstrap-timepicker/css/bootstrap-timepicker.min.css">
+  <link rel="stylesheet" href="assets/bundles/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <!-- Custom style CSS -->
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+</head>
+
+
+<body>
+    <div id="app">
+    <!-- <div class="main-wrapper "> -->
+        <div class="main-content">
+            <section class="section">
+              <div class="section-body">
+                <div class="row">
+                  <div class="col-12 col-md-6 col-lg-6">
+                    <div class="card">
+                      <div class="card-header">
+                        <h4>Add New User</h4>
+                      </div>
+                      <div class="card-body">
+                        <div class="form-group">
+                          <label>Enter First Name</label>
+                          <input type="text" name="first_name" ng-model="userForm.info.first_name" class="form-control" placeholder="Enter First Name" required/>
                         </div>
-                        <div class="form-group-body">
-                            <form novalidate>
-                                <div class="form-group">
-
-                                    <div class="form-field-holder">
-                                        <div class="form-field width-100">
-                                            <label class="field-label field-user">First Name</label>
-                                            <input type="text" name="first_name" ng-model="userForm.info.first_name" class="form-control" placeholder="Enter First Name" required/>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-field-holder">
-                                        <div class="form-field width-100">
-                                            <label class="field-label field-user">Last Name</label>
-                                            <input type="text" name="last_name" ng-model="userForm.info.last_name" class="form-control" placeholder="Enter Last Name"/>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-field-holder">
-                                        <div class="form-field width-100">
-                                            <label class="field-label field-user">Email</label>
-                                            <input type="email" name="email" class="form-control" ng-model="userForm.info.email" placeholder="Enter email" required/>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-field-holder">
-                                        <div class="form-field width-100">
-                                            <label class="field-label field-user">Mobile</label>
-                                            <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" name="mobile" class="form-control" ng-model="userForm.info.mobile_no" placeholder="Enter mobile" required/>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-field-holder">
-                                        <div class="form-field width-100">
-                                            <label class="field-label field-user">User Status</label>
-                                            <select name="status_id" ng-model="userForm.info.status_id" class="form-control" required>
-                                                <option value="" selected>Select an option</option>
-                                                <option value=1>Published</option>
-                                                <option value=2>Draft</option>
-                                                <option value=3>Discard</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-field-holder">
-                                        <div class="form-field width-100">
-                                            <div class="flex-align-right btn-block">
-                                                <button type="button" class="btn treasury-btn" title="Back" ng-click="goTo('/admin/users')">
-                                                    <span class="back-arrow-icon"></span> Back
-                                                </button>
-                                                <button type="button" class="btn primary-btn {{ userForm.btnLoader ? 'btn-loader' : '' }}" ng-click="userForm.updateUser()" title="Update" ng-if="userForm.info.id">
-                                                    <img src="/images/icons/refresh-icon.svg" alt=""> Update
-                                                </button>
-
-                                                <button type="button" class="btn primary-btn {{ userForm.btnLoader ? 'btn-loader' : '' }}" ng-click="userForm.saveUser()" title="Save" ng-if="!userForm.info.id">
-                                                    <img src="/images/icons/refresh-icon.svg" alt=""> Save
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </form>
+                        <div class="form-group">
+                            <label>Enter Last Name</label>
+                            <input type="text" name="last_name" ng-model="userForm.info.last_name" class="form-control" placeholder="Enter Last Name"/>
+                          </div>
+                          <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" class="form-control" ng-model="userForm.info.email" placeholder="Enter email" required/>
+                          </div>
+                        <div class="form-group">
+                          <label>Phone Number</label>
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">
+                                <i class="fas fa-phone"></i>
+                              </div>
+                            </div>
+                            <input type="text" class="form-control phone-number" ng-model="userForm.info.mobile_no"  required>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control form-control-sm" name="status_id" ng-model="userForm.info.status_id" required>
+                                <option value=1>Published</option>
+                                <option value=2>Draft</option>
+                                <option value=3>Discard</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button class="btn btn-icon icon-left btn-success" ng-click="userForm.saveUser()" title="Save" ng-if="!userForm.info.id"><i class="fas fa-check"></i>Submit Form</button>
                         </div>
                     </div>
+                  </div>
                 </div>
-            </div>
+              </div>
+            </section>
+            
         </div>
+    <!-- </div> -->
+
     </div>
-</div>
+    </div>
+
+
+
+</body>

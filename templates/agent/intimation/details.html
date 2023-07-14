@@ -1,109 +1,80 @@
-<div class="content order-screen">
-    <div class="container height-100 flex-center">
-        <div class="loader loader-1" ng-if="intimations.pageLoader">
-            <div class="loader-outer"></div>
-            <div class="loader-inner"></div>
-        </div>
-        <div class="con-holder pad-20" ng-if="!intimations.pageLoader">
-            <div class="order-detail-head">
-                <div class="flex-space-between flex-align-center">
-                    <h3>Intimation</h3>
+<body>
+    <div class="main-wrapper main-wrapper-1">
+        <div class="navbar-bg"></div>
+        <div class="main-content" style="padding-top: 50px ;">
+            <section class="section">
+                <div class="section-body">
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Intimation Details</h4>
+
+                                </div>
+                                <div class="card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <!-- <tr>
+                                                <th>Proposal Name</th>
+                                                <th>Patient Name</th>
+                                                <th>Proposal Mobile</th>
+                                                <th>Policy Number</th>
+                                                <th>Admit Date</th>
+                                                <th>details</th>
+                                            </tr> -->
+                                            <tr>
+                                            <tr>
+                                                <td><strong>Proposal Name</strong></td>
+                                                <td>{{intimation_detail.list.proposal_name}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Patient Name</strong></td>
+                                                <td>{{intimation_detail.list.patient_name}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Proposal Mobile Number</strong></td>
+                                                <td>{{intimation_detail.list.proposal_name}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Proposal Name</strong></td>
+                                                <td>{{intimation_detail.list.proposal_mobile}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Insurance Company</strong></td>
+                                                <td>{{intimation_detail.list.insu_company}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Policy Number</strong></td>
+                                                <td>{{intimation_detail.list.policy_number}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Admit Date</strong></td>
+                                                <td>{{intimation_detail.list.admit_date}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Admit Reason</strong></td>
+                                                <td>{{intimation_detail.list.admit_reason}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Hospital Name</strong></td>
+                                                <td>{{intimation_detail.list.hospital_name}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Hospital Address</strong></td>
+                                                <td>{{intimation_detail.list.hospital_address}}</td>
+                                            </tr>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="order-detail-body">
-                <!-- <div class="row-name-field">{{intimation_detail.list}}</div> -->
-                <div class="content-body table-holder h-line-scroll">
-                    <table class="table">
-                        <!-- <h1>intimation_detail.</h1> -->
-                        <thead>
-                            <tr>
-                                <td class="row-name-field">
-                                   <b> Proposal Name </b>
-                                </td>
-                                <td class="row-name-field">
-                       
-                                    {{intimation_detail.list.proposal_name}}
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td class="row-name-field">
-                                    <b> Patient Name </b>
-                                </td>
-                                <td class="row-name-field">
-                       
-                                    {{intimation_detail.list.patient_name}}
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td class="row-name-field">
-                                    <b> Proposal Mobile Number </b>
-                                </td>
-                                <td class="row-name-field">
-                       
-                                    {{intimation_detail.list.proposal_mobile}}
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td class="row-name-field">
-                                    <b> Insurance Company </b>
-                                </td>
-                                <td class="row-name-field">
-                       
-                                    {{intimation_detail.list.insu_company}}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="row-name-field">
-                                    <b> Policy Number </b>
-                                </td>
-                                <td class="row-name-field">
-                       
-                                    {{intimation_detail.list.policy_number}}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="row-name-field">
-                                    <b> Admit Date </b>
-                                </td>
-                                <td class="row-name-field">
-                       
-                                    {{intimation_detail.list.admit_date}}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="row-name-field">
-                                    <b> Admit Reason </b>
-                                </td>
-                                <td class="row-name-field">
-                       
-                                    {{intimation_detail.list.admit_reason}}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="row-name-field">
-                                    <b> Hospital Name </b>
-                                </td>
-                                <td class="row-name-field">
-                       
-                                    {{intimation_detail.list.hospital_name}}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="row-name-field">
-                                    <b> Hospital Address </b>
-                                </td>
-                                <td class="row-name-field">
-                       
-                                    {{intimation_detail.list.hospital_address}}
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            </section>
         </div>
+        
     </div>
-</div>
+
+</body>

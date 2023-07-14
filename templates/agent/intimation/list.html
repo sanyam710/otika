@@ -1,71 +1,58 @@
-<div class="content order-screen">
-    <div class="container height-100 flex-center">
-        <div class="loader loader-1" ng-if="intimations.pageLoader">
-            <div class="loader-outer"></div>
-            <div class="loader-inner"></div>
-        </div>
-        <div class="con-holder pad-20" ng-if="!intimations.pageLoader">
-            <div class="order-detail-head">
-                <div class="flex-space-between flex-align-center">
-                    <h3>Intimation</h3>
-                    <div class="form-group flex-space-between flex-align-center inline-form">
-                        <div class="form-field search-field">
-                            <input type="search" ng-model="intimations.intimationText" class="form-control form-control-search" placeholder="Search...">
+<body>
+    <div class="main-wrapper main-wrapper-1">
+        <div class="navbar-bg"></div>
+        <div class="main-content" style="padding-top: 50px;">
+            <section class="section">
+                <div class="section-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Intimation Details</h4>
+                                    <!-- <div class="card-header-form">
+                                        <form>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="Search">
+                                                <div class="input-group-btn">
+                                                    <button class="btn btn-primary"><i
+                                                            class="fas fa-search"></i></button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div> -->
+                                </div>
+                                <div class="card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <tr>
+                                                <th>Proposal Name</th>
+                                                <th>Patient Name</th>
+                                                <th>Proposal Mobile</th>
+                                                <th>Policy Number</th>
+                                                <th>Admit Date</th>
+                                                <th>Details</th>
+                                                
+                                            </tr>
+                                            <tr
+                                                ng-repeat="intimation in intimations.list | filter: intimations.intimationText | orderBy: '+id'">
+                                                <td>{{ intimation.proposal_name }}</td>
+                                                <td>{{ intimation.patient_name }}</td>
+                                                <td>{{ intimation.proposal_mobile }}</td>
+                                                <td>{{ intimation.policy_number }}</td>
+                                                <td>{{ intimation.admit_date }}</td>
+                                                <td><button class="btn btn-primary"  style= "height: 40px;"
+                                                    ng-click="intimations.navigateToIntimationDetails(intimation,intimation.id)">
+                                                    <span >view</span></button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="order-detail-body">
-                <div class="content-body table-holder h-line-scroll">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>
-                                    <div class="row-name-field">Proposal Name</div>
-                                </th>
-                                <th>
-                                    <div class="row-email-field">Patient Name</div>
-                                </th>
-                                <th>
-                                    <div class="row-status-field">Proposal Mobile</div>
-                                </th>
-                                <th>
-                                    <div class="row-action-field">Policy Number</div>
-                                </th>
-                                <th>
-                                    <div class="row-action-field">Admit Date</div>
-                                </th>
-                                <th>
-                                    <div class="row-action-field">details</div>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="intimation in intimations.list | filter: intimations.intimationText | orderBy: '+id'">
-                                <td>
-                                    <div class="row-name-field">{{ intimation.proposal_name }}</div>
-                                </td>
-                                <td>
-                                    <div class="row-name-field">{{ intimation.patient_name }}</div>
-                                </td>
-                                <td>
-                                    <div class="row-name-field">{{ intimation.proposal_mobile }}</div>
-                                </td>
-                                <td>
-                                    <div class="row-name-field">{{ intimation.policy_number }}</div>
-                                </td>
-                                <td>
-                                    <div class="row-name-field">{{ intimation.admit_date }}</div>
-                                </td>
-                                <td>
-                                    <!-- class="btn primary-btn flex-center -->
-                                    <button  class="btn primary-btn flex-center" ng-click="intimations.navigateToIntimationDetails(intimation,intimation.id)">view</button> 
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            </section>
         </div>
     </div>
-</div>
+</body>

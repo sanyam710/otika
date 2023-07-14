@@ -1,24 +1,43 @@
-<div class="side-nav">
-    <div class="nav-header">
-        <h3>Agent</h3>
-    </div>
-    <div class="nav admin-nav">
-        <div class="nav-links">
-            <ul>
-                <li title="Intimations" ng-class="{'active': nav.selected == 'intimations'}" ng-click="goTo('/agent/intimations')">
-                    <a><span class="admin-change-password-icon"></span>Intimations</a>
-                </li>
-                <li title="Profile" ng-class="{'active': nav.selected == 'password-reset'}" ng-click="goTo('/agent/password-reset')">
-                    <a><span class="admin-change-password-icon"></span>Profile</a>
-                </li>
-            </ul>
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div id="app">
+        <div class="main-wrapper main-wrapper-1 ">
+            <div class="navbar-bg"></div>
+            <div class="main-sidebar sidebar-style-2">
+                <aside id="sidebar-wrapper">
+                    <div class="sidebar-brand">
+                        <a href="index.html"> <img alt="image" src="/app/assets/img/logo.png" class="btn" />
+                            <span class="logo-name">Agent Help</span>
+                        </a>
+                    </div>
+                    <ul class="sidebar-menu" style="padding-top:50px ;">
+                        <li title="Intimations" ng-click="goTo('/agent/intimations')">
+                            <a class="nav-link"><img
+                                    src="/app/assets/bundles/feather-icons/dist/icons/users.svg" /><span
+                                    style="padding-left:15px ;">Intimations</span>
+                            </a>
+                        </li>
+                        <li title="Profile" ng-click="goTo('/agent/password-reset')">
+                            <a class="nav-link"><img alt="image"
+                                    src="/app/assets/bundles/feather-icons/dist/icons/user.svg" /><span
+                                    style="padding-left:15px ;">Profile</span>
+                            </a>
+                        </li>
+                        <div class="foot">
+                            <li title="Log Out" ng-click="logout()">
+                                <a class="nav-link"><img alt="image"
+                                        src="/app/assets/bundles/feather-icons/dist/icons/log-out.svg" /><span
+                                        style="padding-left:15px ;">Logout</span>
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </aside>
+            </div>
         </div>
-        <div class="foot-links">
-            <ul>
-                <li title="Log out">
-                    <span ng-click="logout()" class="log-out-btn"><span class="log-out-icon"></span>Log out</span>
-                </li>
-            </ul>
-        </div>
     </div>
-</div>
+</body>
+
+</html>
