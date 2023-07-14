@@ -2,7 +2,7 @@
 BASE_URL = "http://3.110.40.75";
 // BASE_URL = "http://3000";
 
-BASE_WEB_URL = "http://sasasad.s3-website.ap-south-1.amazonaws.com";
+BASE_WEB_URL = "http://sasasad.s3-website.ap-south-1.amazonaws.com/";
 // BASE_WEB_URL = "http://127.0.0.1:8081/";
 
 
