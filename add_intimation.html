@@ -108,116 +108,113 @@
     <div id="qaz">
         <section class="section">
             <div class="section-body">
-                <div class="align-center margin-20">
-                    <h2>Intimation Form</h2>
-                </div>
-                <div class="row">
-                    <div class="row-30 col-12">
-                        <div class="card">
-                            
-                            <form name="intimation_form">
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <label>Proposal Name</label>
+                <div class="col-14">
+                    <div class="card" style="margin-bottom: 0px;">
+                        <div class="class-header align-center margin-20">
+                            <h2>Intimation Form</h2>
+
+                        </div>
+
+                        <form name="intimation_form">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>Proposal Name</label>
 
 
-                                        <input type="text" name="proposal_name"
-                                            ng-model="intimation_form.info.proposal_name" class="form-control"
-                                            placeholder="Enter Proposal Name" ng-required="true">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Patient Name</label>
-                                        <input type="text" name="last_name" ng-model="intimation_form.info.patient_name"
-                                            class="form-control" placeholder="Enter Name of patient" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Phone Number</label>
-                                        <div class="input-group">
-                                            <!-- <div class="input-group-prepend">
+                                    <input type="text" name="proposal_name"
+                                        ng-model="intimation_form.info.proposal_name" class="form-control"
+                                        placeholder="Enter Proposal Name" ng-required="true">
+                                </div>
+                                <div class="form-group">
+                                    <label>Patient Name</label>
+                                    <input type="text" name="last_name" ng-model="intimation_form.info.patient_name"
+                                        class="form-control" placeholder="Enter Name of patient" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone Number</label>
+                                    <div class="input-group">
+                                        <!-- <div class="input-group-prepend">
                                             <div class="input-group-text">
                                                 <i class="fas fa-phone"></i>
                                             </div>
                                         </div> -->
-                                            <input type="text"
-                                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-                                                minlength="10" maxlength="10" name="proposal_mobile"
-                                                class="form-control" ng-model="intimation_form.info.proposal_mobile"
-                                                placeholder="Enter Proposal mobile Number" required>
-                                        </div>
+                                        <input type="text"
+                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                                            minlength="10" maxlength="10" name="proposal_mobile" class="form-control"
+                                            ng-model="intimation_form.info.proposal_mobile"
+                                            placeholder="Enter Proposal mobile Number" required>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Insurance Company</label>
-                                        <select name="insu_company" ng-model="intimation_form.info.insu_company"
-                                            class="form-control select2" ng-mobile required>
-                                            <option value="" selected>Select an option</option>
-                                            <option value="United India Insurance Company">United India Insurance
-                                                Company
-                                            </option>
-                                            <option value="New India Assurance Company">New India Assurance Company
-                                            </option>
-                                            <option value="Niva Bupa Health Company">Niva Bupa Insurance Company
-                                            </option>
-                                            <option value="The Oriental Insurance Company">The Oriental Insurance
-                                                Company
-                                            </option>
-                                            <option value="HDFC ERGO General Insurance">HDFC ERGO General Insurance
-                                            </option>
-                                            <option value="ICICI Lombard GIC Ltd">ICICI Lombard GIC Ltd</option>
-                                            <option value="IFFCO-TOKIO">IFFCO-TOKIO</option>
-                                            <option value="National Insurance Company">National Insurance Company
-                                            </option>
-                                            <option value="Relegare Health Insurance">Relegare Health Insurance</option>
-                                            <option value="Reliance General Insurance">Reliance General Insurance
-                                            </option>
-                                            <option value="Royal Sundaram">Royal Sundaram</option>
-                                            <option value="SBI General Insurance">SBI General Insurance</option>
-                                            <option value="Star Health Insurance">Star Health Insurance</option>
-                                            <option value="other">other</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Policy Number</label>
-                                        <input type="text" name="policy_number"
-                                            ng-model="intimation_form.info.policy_number" class="form-control"
-                                            placeholder="Enter Policy Number" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Admit Date</label>
-                                        <input type="date" class="form-control" autocomplete="off" name="admit_date"
-                                            ng-mobile ng-model="intimation_form.info.admit_date" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Admit Reason</label>
-                                        <input type="text" name="admit_reason"
-                                            ng-model="intimation_form.info.admit_reason" class="form-control"
-                                            placeholder="Enter Admit Reason" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Hospital Name</label>
-                                        <input type="text" name="hospital_name"
-                                            ng-model="intimation_form.info.hospital_name" class="form-control"
-                                            placeholder="Enter Hospital Name" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Hospital Address</label>
-                                        <input type="text" name="hospital_address"
-                                            ng-model="intimation_form.info.hospital_address" class="form-control"
-                                            placeholder="Enter Hospital Address" required>
-                                    </div>
-
-                                    <button type="submit" class=" btn btn-icon btn-lg btn-success"
-                                        ng-click="validateForm()" title="Save"><i class="fas fa-check"></i>
-                                         Submit
-                                    </button>
                                 </div>
-                            </form>
-                        </div>
+                                <div class="form-group">
+                                    <label>Insurance Company</label>
+                                    <select name="insu_company" ng-model="intimation_form.info.insu_company"
+                                        class="form-control select2" ng-mobile required>
+                                        <option value="" selected>Select an option</option>
+                                        <option value="United India Insurance Company">United India Insurance
+                                            Company
+                                        </option>
+                                        <option value="New India Assurance Company">New India Assurance Company
+                                        </option>
+                                        <option value="Niva Bupa Health Company">Niva Bupa Insurance Company
+                                        </option>
+                                        <option value="The Oriental Insurance Company">The Oriental Insurance
+                                            Company
+                                        </option>
+                                        <option value="HDFC ERGO General Insurance">HDFC ERGO General Insurance
+                                        </option>
+                                        <option value="ICICI Lombard GIC Ltd">ICICI Lombard GIC Ltd</option>
+                                        <option value="IFFCO-TOKIO">IFFCO-TOKIO</option>
+                                        <option value="National Insurance Company">National Insurance Company
+                                        </option>
+                                        <option value="Relegare Health Insurance">Relegare Health Insurance</option>
+                                        <option value="Reliance General Insurance">Reliance General Insurance
+                                        </option>
+                                        <option value="Royal Sundaram">Royal Sundaram</option>
+                                        <option value="SBI General Insurance">SBI General Insurance</option>
+                                        <option value="Star Health Insurance">Star Health Insurance</option>
+                                        <option value="other">other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Policy Number</label>
+                                    <input type="text" name="policy_number"
+                                        ng-model="intimation_form.info.policy_number" class="form-control"
+                                        placeholder="Enter Policy Number" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Admit Date</label>
+                                    <input type="date" class="form-control" autocomplete="off" name="admit_date"
+                                        ng-mobile ng-model="intimation_form.info.admit_date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Admit Reason</label>
+                                    <input type="text" name="admit_reason" ng-model="intimation_form.info.admit_reason"
+                                        class="form-control" placeholder="Enter Admit Reason" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Hospital Name</label>
+                                    <input type="text" name="hospital_name"
+                                        ng-model="intimation_form.info.hospital_name" class="form-control"
+                                        placeholder="Enter Hospital Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Hospital Address</label>
+                                    <input type="text" name="hospital_address"
+                                        ng-model="intimation_form.info.hospital_address" class="form-control"
+                                        placeholder="Enter Hospital Address" required>
+                                </div>
+
+                                <button type="submit" class=" btn btn-icon btn-lg btn-success" ng-click="validateForm()"
+                                    title="Save"><i class="fas fa-check"></i>
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </section>
     </div>
 </body>
+
 </html>
-
-
