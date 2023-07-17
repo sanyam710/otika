@@ -7,24 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Agent Help</title>
-    <link rel="stylesheet" href="/landing-screen/css/base.css" />
     <script src="/lib/jquery-3.6.0.min.js"></script>
     <script src="/lib/angular/angular.js"></script>
     <script src="/lib/angular/angular-route.js"></script>
     <script src="/lib/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="app/assets/css/app.min.css">
     <link rel="stylesheet" href="/app/assets/css/agenthelpstyle.css">
-
-
     <link rel="stylesheet" href="/app/assets/css/app.min.css">
     <link rel="stylesheet" href="/app/assets/css/style.css">
-    <link rel="stylesheet" href="/app/assets/css/components.css">
-    <link rel="stylesheet" href="/app/assets/css/custom.css">
     <link rel='shortcut icon' type='image/x-icon' href='/app/assets/img/favicon.ico' />
-
-    <!-- <script src="/app/assets/js/app.min.js"></script>
-    <script src="/app/assets/js/scripts.js"></script>
-    <script src="/app/assets/js/custom.js"></script> -->
     <script src="/env/vars.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
 </head>
@@ -41,12 +31,10 @@
             init: function () {
                 const urlParams = new URLSearchParams(window.location.search);
                 myParam = urlParams.get('intimation_key');
-                console.log(myParam);
             },
 
         },
             $scope.error = function (msg) {
-                console.log(msg);
                 if (msg == "mobile") {
                     Swal.fire({
                         icon: 'error',
@@ -78,7 +66,6 @@
             }
 
         $scope.SubmitIntimation = function () {
-            console.log("dfsdds", myParam);
             $scope.intimation_form.info.intimation_key = myParam;
 
             IntimationService.intimations.add_intimations($scope.intimation_form.info, (error, data) => {
@@ -101,14 +88,11 @@
                 datePicker.setAttribute('max', max);
             }
         $scope.validateForm = function () {
-            console.log($scope.intimation_form.info);
             if ($scope.intimation_form.$valid) {
                 $scope.intimation_form.info.admit_date = new Date($scope.intimation_form.info.admit_date);
-                $scope.intimation_form.info.admit_date.setHours(10);
-                console.log($scope.intimation_form.info.admit_date);
+                $scope.intimation_form.info.admit_date.setHours(10);;
                 var mobile = $scope.intimation_form.info.proposal_mobile;
                 mobile.toString();
-                console.log(mobile.length);
                 if ($scope.intimation_form.info.admit_date > $scope.maxDate) { }
                 else if (mobile.length < 10) {
                     $scope.error("mobile");
@@ -137,7 +121,7 @@
                     Swal.fire({
                         icon: 'error',
                         title: 'Error',
-                        text: 'There was an error while submitting the Intimation Form3432.',
+                        text: 'There was an error while submitting the Intimation Form.',
                     });
                     callback(result.data.message, null);
                 }
@@ -148,7 +132,6 @@
                         text: 'The Intimation Form was submitted successfully.',
                     });;
                     document.getElementById("intimation_form").reset();
-                    intimation_form.status = "true";
                     callback(null, result.data.contents);
                 } else {
                     Swal.fire({
@@ -165,7 +148,10 @@
 
         return obj;
     }])
+
+
 </script>
+
 
 
 <body ng-app="app" ng-controller="AddIntimationController">
@@ -259,109 +245,108 @@
                                         <div>
                                             <input type="text" id="myInput" list="optionsList" class="form-control"
                                                 name="insu_company" ng-model="intimation_form.info.insu_company"
-                                                placeholder="Select Policy Company" size="31">
-                                        </div>
-                                        <datalist id="optionsList">
-                                            <!-- <select >/ -->
-                                            <option value="" selected>Select an option</option>
-                                            <option value="United India Insurance Company">United India Insurance
-                                                Company
-                                            </option>
-                                            <option value="New India Assurance Company">New India Assurance Company
-                                            </option>
-                                            <option value="Niva Bupa Health Company">Niva Bupa Insurance Company
-                                            </option>
-                                            <option value="The Oriental Insurance Company">The Oriental Insurance
-                                                Company
-                                            </option>
-                                            <option value="HDFC ERGO General Insurance">HDFC ERGO General Insurance
-                                            </option>
-                                            <option value="ICICI Lombard GIC Ltd">ICICI Lombard GIC Ltd</option>
-                                            <option value="IFFCO-TOKIO">IFFCO-TOKIO</option>
-                                            <option value="National Insurance Company">National Insurance Company
-                                            </option>
-                                            <option value="Relegare Health Insurance">Relegare Health Insurance</option>
-                                            <option value="Reliance General Insurance">Reliance General Insurance
-                                            </option>
-                                            <option value="Royal Sundaram">Royal Sundaram</option>
-                                            <option value="SBI General Insurance">SBI General Insurance</option>
-                                            <option value="Star Health Insurance">Star Health Insurance</option>
-                                            <option value="other">other</option>
-                                            <!-- </select> -->
+                                                placeholder="Select Company" size="19px">
 
-                                        </datalist>
-
-                                    </div>
-
-                                    <div class="form-group" style="padding-top: 20px;">
-                                        <label>Policy Number</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <i class="fas fa-address-book"></i>
-                                                </div>
-                                            </div>
-
-                                            <input type="text" name="policy_number"
-                                                ng-model="intimation_form.info.policy_number" class="form-control"
-                                                placeholder="Enter Policy Number" required>
+                                            <datalist id="optionsList">
+                                                <option value="" selected>Select an option</option>
+                                                <option value="United India Insurance Company">United India Insurance
+                                                    Company
+                                                </option>
+                                                <option value="New India Assurance Company">New India Assurance Company
+                                                </option>
+                                                <option value="Niva Bupa Health Company">Niva Bupa Insurance Company
+                                                </option>
+                                                <option value="The Oriental Insurance Company">The Oriental Insurance
+                                                    Company
+                                                </option>
+                                                <option value="HDFC ERGO General Insurance">HDFC ERGO General Insurance
+                                                </option>
+                                                <option value="ICICI Lombard GIC Ltd">ICICI Lombard GIC Ltd</option>
+                                                <option value="IFFCO-TOKIO">IFFCO-TOKIO</option>
+                                                <option value="National Insurance Company">National Insurance Company
+                                                </option>
+                                                <option value="Relegare Health Insurance">Relegare Health Insurance
+                                                </option>
+                                                <option value="Reliance General Insurance">Reliance General Insurance
+                                                </option>
+                                                <option value="Royal Sundaram">Royal Sundaram</option>
+                                                <option value="SBI General Insurance">SBI General Insurance</option>
+                                                <option value="Star Health Insurance">Star Health Insurance</option>
+                                                <option value="other">other</option>
+                                            </datalist>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="datePicker">Admit Date</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <i class="far fa-calendar-alt"></i>
-                                                </div>
-                                            </div>
-                                            <input type="date" id="datePicker" class="form-control " autocomplete="off"
-                                                name="admit_date" ng-mobile ng-model="intimation_form.info.admit_date"
-                                                required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Admit Reason</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <i class="fas fa-bed"></i>
-                                                </div>
-                                            </div>
-                                            <input type="text" name="admit_reason"
-                                                ng-model="intimation_form.info.admit_reason" class="form-control"
-                                                placeholder="Enter Admit Reason" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Hospital Name</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <i class="fas fa-hospital-alt"></i>
-                                                </div>
-                                            </div>
-                                            <input type="text" name="hospital_name"
-                                                ng-model="intimation_form.info.hospital_name" class="form-control"
-                                                placeholder="Enter Hospital Name" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Hospital Address</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <i class="fas fa-clipboard-list"></i>
-                                                </div>
-                                            </div>
-                                            <input type="text" name="hospital_address"
-                                                ng-model="intimation_form.info.hospital_address" class="form-control"
-                                                placeholder="Enter Hospital Address" required>
-                                        </div>
-                                    </div>
-                                    <button class="btn btn-icon icon-left btn-primary" style="font-size: 20px;"
-                                        ng-click="validateForm()"><i class="fas fa-check"></i>submit</button>
                                 </div>
+                                <div class="form-group">
+                                    <label>Policy Number</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fas fa-address-book"></i>
+                                            </div>
+                                        </div>
+                                        <input type="text" name="policy_number"
+                                            ng-model="intimation_form.info.policy_number" class="form-control"
+                                            placeholder="Enter Policy Number" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="datePicker">Admit Date</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="far fa-calendar-alt"></i>
+                                            </div>
+                                        </div>
+                                        <input type="date" id="datePicker" class="form-control " autocomplete="off"
+                                            name="admit_date" ng-mobile ng-model="intimation_form.info.admit_date"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Admit Reason</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fas fa-bed"></i>
+                                            </div>
+                                        </div>
+                                        <input type="text" name="admit_reason"
+                                            ng-model="intimation_form.info.admit_reason" class="form-control"
+                                            placeholder="Enter Admit Reason" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Hospital Name</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fas fa-hospital-alt"></i>
+                                            </div>
+                                        </div>
+                                        <input type="text" name="hospital_name"
+                                            ng-model="intimation_form.info.hospital_name" class="form-control"
+                                            placeholder="Enter Hospital Name" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Hospital Address</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fas fa-clipboard-list"></i>
+                                            </div>
+                                        </div>
+                                        <input type="text" name="hospital_address"
+                                            ng-model="intimation_form.info.hospital_address" class="form-control"
+                                            placeholder="Enter Hospital Address" required>
+                                    </div>
+                                </div>
+                                <button class="btn btn-icon icon-left btn-primary" style="font-size: 20px;"
+                                    ng-click="validateForm()"><i class="fas fa-check"
+                                        style="font-size: 17px;"></i>Submit
+                                </button>
+                            </div>
                         </form>
                     </div>
                 </div>
