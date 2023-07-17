@@ -1,86 +1,95 @@
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Otika - Admin Dashboard Template</title>
-  <!-- General CSS Files -->
-  <link rel="stylesheet" href="assets/css/app.min.css">
-  <link rel="stylesheet" href="assets/bundles/bootstrap-daterangepicker/daterangepicker.css">
-  <link rel="stylesheet" href="assets/bundles/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
-  <link rel="stylesheet" href="assets/bundles/select2/dist/css/select2.min.css">
-  <link rel="stylesheet" href="assets/bundles/jquery-selectric/selectric.css">
-  <link rel="stylesheet" href="assets/bundles/bootstrap-timepicker/css/bootstrap-timepicker.min.css">
-  <link rel="stylesheet" href="assets/bundles/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
-  <!-- Template CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/components.css">
-  <!-- Custom style CSS -->
-  <link rel="stylesheet" href="assets/css/custom.css">
-  <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
-</head>
-
-
 <body>
-    <div id="app">
-    <!-- <div class="main-wrapper "> -->
-        <div class="main-content">
-            <section class="section">
-              <div class="section-body">
-                <div class="row">
-                  <div class="col-12 col-md-6 col-lg-6">
-                    <div class="card">
-                      <div class="card-header">
-                        <h4>Add New User</h4>
+  <div class="loader" ng-if="users.pageLoader"></div>
+  <div id="app">
+    <div class="main-content nav-pad-top">
+      <section class="section">
+        <div class="section-body">
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg-6">
+              <div class="card">
+                <div class="card-header">
+                  <h4>Add New User</h4>
+                </div>
+                <div class="card-body">
+                  <form>
+                    <div class="form-group">
+                      <label>Enter First Name</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-user"></i>
+                          </div>
+                        </div>
+                        <input type="text" name="first_name" ng-model="userForm.info.first_name" class="form-control"
+                          placeholder="Enter First Name" required />
                       </div>
-                      <div class="card-body">
-                        <div class="form-group">
-                          <label>Enter First Name</label>
-                          <input type="text" name="first_name" ng-model="userForm.info.first_name" class="form-control" placeholder="Enter First Name" required/>
-                        </div>
-                        <div class="form-group">
-                            <label>Enter Last Name</label>
-                            <input type="text" name="last_name" ng-model="userForm.info.last_name" class="form-control" placeholder="Enter Last Name"/>
-                          </div>
-                          <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" name="email" class="form-control" ng-model="userForm.info.email" placeholder="Enter email" required/>
-                          </div>
-                        <div class="form-group">
-                          <label>Phone Number</label>
-                          <div class="input-group">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">
-                                <i class="fas fa-phone"></i>
-                              </div>
-                            </div>
-                            <input type="text" class="form-control phone-number" ng-model="userForm.info.mobile_no"  required>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                            <select class="form-control form-control-sm" name="status_id" ng-model="userForm.info.status_id" required>
-                                <option value=1>Published</option>
-                                <option value=2>Draft</option>
-                                <option value=3>Discard</option>
-                            </select>
-                        </div>
-                        <div>
-                            <button class="btn btn-icon icon-left btn-success" ng-click="userForm.saveUser()" title="Save" ng-if="!userForm.info.id"><i class="fas fa-check"></i>Submit Form</button>
-                        </div>
                     </div>
-                  </div>
+                    <div class="form-group">
+                      <label>Enter Last Name</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-user"></i>
+                          </div>
+                        </div>
+                        <input type="text" name="last_name" ng-model="userForm.info.last_name" class="form-control"
+                          placeholder="Enter Last Name" />
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Email</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-envelope"></i>
+                          </div>
+                        </div>
+                        <input type="email" name="email" class="form-control" ng-model="userForm.info.email"
+                          placeholder="Enter email" required />
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Phone Number</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-phone"></i>
+                          </div>
+                        </div>
+                        <input type="text"
+                          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                          maxlength="10" name="proposal_mobile" class="form-control"
+                          ng-model="userForm.info.mobile_no"
+                          placeholder="Enter Phone Number" required>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>User Status</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-file-signature"></i>
+                          </div>
+                        </div>
+                        <select class="form-control form-control-sm" name="status_id" ng-model="userForm.info.status_id"
+                          required>
+                          <option value="" selected>Select an option</option>
+                          <option value=1>Published</option>
+                          <option value=2>Draft</option>
+                          <option value=3>Discard</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div>
+                      <button class="btn btn-icon icon-left btn-success" ng-click="userForm.saveUser()" title="Save"
+                        ng-if="!userForm.info.id"><i class="fas fa-check"></i>Submit Form</button>
+                    </div>
+                  </form>
                 </div>
               </div>
-            </section>
-            
-        </div>
-    <!-- </div> -->
-
+            </div>
+          </div>
+      </section>
     </div>
-    </div>
-
-
-
+  </div>
 </body>

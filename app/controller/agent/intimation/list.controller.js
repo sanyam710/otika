@@ -14,7 +14,29 @@ angular.module("AgentHelp").controller("AgentIntimationListCtrl", ["$scope", "Ag
                     return;
                 }
                 this.list = data;
-                this.pageLoader = false;
+                this.pageLoader=false;
+                
+                
+                for(var i =0;i<this.list.length;i++)
+                {
+                    console.log(this.list[i]);
+                    var parts = this.list[i].admit_date.split("T");
+                    var dateStr = parts[0];
+                    var dateParts = dateStr.split("-");
+                    var year = dateParts[0];
+                    var month = dateParts[1];
+                    var day = dateParts[2];
+                    console.log(day);
+                    var monthNames = [
+                    "January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"
+                    ];
+                    var date = day + " " + monthNames[Number(month) - 1] + " " + year;
+                    this.list[i].admit_date=date
+
+                }
+                
+                
             })
         },
         navigateToIntimationDetails: function (intimation,id) {

@@ -26,10 +26,32 @@ angular.module("AgentHelp").controller("AgentProfileEditCtrl", ["$scope", "Admin
                 })
             }
         },
-        copyurl: function () {
-            navigator.clipboard.writeText(this.url);
-            $scope.toast.show("Link Copied","success");
-        },
+        copylink:function(){
+            console.log("ewrewr");
+            var table = document.getElementById("link");
+            // table.style.display = 'table';
+            var range = document.createRange();
+            console.log(range);
+            range.selectNode(table);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+
+      try {
+        var successful = document.execCommand('copy');
+        var msg = successful ? 'Table copied to clipboard!' : 'Unable to copy table.';
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: 'Link Copied Successfully',
+        });;
+        console.log(msg);
+      } catch (err) {
+        console.log('Unable to copy table. Error:', err);
+      }
+
+      window.getSelection().removeAllRanges();
+    //   table.style.display = 'none';
+        }
     }
 
     $scope.profile.init();

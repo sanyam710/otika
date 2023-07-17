@@ -1,37 +1,38 @@
+
 <body>
+    <div class="loader" ng-if="intimations.pageLoader"></div>   
     <div class="main-wrapper main-wrapper-1">
         <div class="navbar-bg"></div>
-        <div class="main-content" style="padding-top: 50px;">
+        <div class="main-content nav-pad-top">
             <section class="section">
                 <div class="section-body">
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4>Intimation Details</h4>
-                                    <!-- <div class="card-header-form">
+                                    <h4 class="card-head-align">Intimations</h4>
+                                    <div class="card-header-form">
                                         <form>
                                             <div class="input-group">
-                                                <input type="text" class="form-control" placeholder="Search">
+                                                <input type="text" ng-model="intimations.intimationText" class="form-control" placeholder="Search">
                                                 <div class="input-group-btn">
                                                     <button class="btn btn-primary"><i
                                                             class="fas fa-search"></i></button>
                                                 </div>
                                             </div>
                                         </form>
-                                    </div> -->
+                                    </div>
                                 </div>
                                 <div class="card-body p-0">
                                     <div class="table-responsive">
                                         <table class="table table-striped">
-                                            <tr>
+                                            <tr class="card-head-align">
                                                 <th>Proposal Name</th>
                                                 <th>Patient Name</th>
                                                 <th>Proposal Mobile</th>
                                                 <th>Policy Number</th>
                                                 <th>Admit Date</th>
-                                                <th>Details</th>
-                                                
+                                                <th>Details</th>                                      
                                             </tr>
                                             <tr
                                                 ng-repeat="intimation in intimations.list | filter: intimations.intimationText | orderBy: '+id'">
@@ -40,7 +41,7 @@
                                                 <td>{{ intimation.proposal_mobile }}</td>
                                                 <td>{{ intimation.policy_number }}</td>
                                                 <td>{{ intimation.admit_date }}</td>
-                                                <td><button class="btn btn-primary"  style= "height: 40px;"
+                                                <td><button class="btn btn-primary font-15 height-40"  
                                                     ng-click="intimations.navigateToIntimationDetails(intimation,intimation.id)">
                                                     <span >view</span></button>
                                                 </td>

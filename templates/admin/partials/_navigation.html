@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <body>
     <div id="app">
         <div class="main-wrapper main-wrapper-1 ">
@@ -8,28 +5,26 @@
             <div class="main-sidebar sidebar-style-2">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a href="index.html"> <img alt="image" src="/app/assets/img/logo.png" class="btn" />
-                            <span class="logo-name" ;>Agent Help</span>
-                        </a>
+                        <span  ><h4 class="nav-pad-top">Agent Help</h4></span>
                     </div>
-                    <ul class="sidebar-menu" style="padding-top:50px ;">
+                    <ul class="sidebar-menu nav-pad-top" >
                         <li title="Users" ng-click="goTo('admin/users')">
                             <a class="nav-link"><img
                                     src="/app/assets/bundles/feather-icons/dist/icons/users.svg" /><span
-                                    style="padding-left:15px ;">Users</span>
+                                    class=" nav-ele-pad-left">Users</span>
                             </a>
                         </li>
                         <li title="Profile" ng-click="goTo('/admin/password-reset')">
                             <a class="nav-link"><img alt="image"
                                     src="/app/assets/bundles/feather-icons/dist/icons/user.svg" /><span
-                                    style="padding-left:15px ;">Profile</span>
+                                    class=" nav-ele-pad-left">Profile</span>
                             </a>
                         </li>
-                        <div class="foot">
+                        <div class="logout-nav">
                             <li title="Log Out" ng-click="logout()">
                                 <a class="nav-link"><img alt="image"
-                                        src="/app/assets/bundles/feather-icons/dist/icons/log-out.svg" />
-                                    <span style="padding-left:15px ;">Logout</span>
+                                        src="/app/assets/bundles/feather-icons/dist/icons/log-out.svg" /><span
+                                        class="nav-ele-pad-left logout-pad" >Logout</span>
                                 </a>
                             </li>
                         </div>
@@ -39,4 +34,3 @@
         </div>
     </div>
 </body>
-</html>

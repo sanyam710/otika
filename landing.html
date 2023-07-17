@@ -8,13 +8,12 @@
 
         <link rel="stylesheet" href="/css/base.css">
         <script src="https://unpkg.com/feather-icons/dist/feather.js"></script>
-
-
         <script src="/lib/angular/angular.js"></script>
         <script src="/lib/angular/angular-route.js"></script>
         <script src="/lib/jquery-3.6.0.min.js"></script>
 
         <link rel="stylesheet" href="/app/assets/css/app.min.css">
+        <link rel="stylesheet" href="/app/assets/css/agenthelpstyle.css">
     <!-- Template CSS -->
     <link rel="stylesheet" href="/app/assets/css/style.css">
     <link rel="stylesheet" href="/app/assets/css/components.css">
@@ -23,27 +22,18 @@
     <link rel='shortcut icon' type='image/x-icon' href='/app/assets/img/favicon.ico' />
 
         <script src="/app/assets/js/app.min.js"></script>
-    <!-- JS Libraies -->
-    <!-- Page Specific JS File -->
-    <!-- Template JS File -->
-    <script src="/app/assets/js/scripts.js"></script>
-    <!-- Custom JS File -->
-    <script src="/app/assets/js/custom.js"></script>
-
+        <script src="/app/assets/js/scripts.js"></script>
+        <script src="/app/assets/js/custom.js"></script>
         <script src="/env/vars.js"></script>
-
         <script src="/app/helpers/utility.js"></script>
         <script src="/app/helpers/constants.js"></script>
-
         <script src="/app/app.main.js"></script>
         <script src="/app/routes/admin.routes.js"></script>
-
         <script src="/app/service/auth.service.js"></script>
         <script src="/app/service/admin.service.js"></script>
         <script src="/app/service/agent.service.js"></script>
         <script src="/app/controller/main.controller.js"></script>
         <script src="/app/routes/agent.routes.js"></script>
-        <!-- app\routes\agent.routes.js -->
 
         <!--Admin-->
         <script src="/app/controller/admin/user.controller.js"></script>
@@ -51,7 +41,9 @@
         <script src="/app/controller/admin/profile/reset.password.controller.js"></script>
         <script src="/app/controller/agent/intimation/list.controller.js"></script>
         <script src="/app/controller/agent/intimationdetails/intimationdetail.controller.js"></script>
+        <script src="/app/controller/agent/links/links.controller.js"></script>
         <script src="/app/controller/agent/profile/editprofile.controller.js"></script>
+        <script src="lib/swal.js"></script>
     </head>
     <body ng-app="AgentHelp" ng-cloak ng-controller="MainCtrl">
         <div class="main-wrap">

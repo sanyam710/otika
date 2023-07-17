@@ -1,0 +1,49 @@
+<body>
+    <div class="main-wrapper main-wrapper-1">
+        <div class="navbar-bg"></div>
+        <div class="main-content" style="padding-top: 50px;">
+            <section class="section">
+                <div class="section-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-head-align">Links</h4>
+                                </div>
+                                <div class="card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <tr class="card-head-align">
+                                                <th>Form Name</th>
+                                                <th class="pad-left">Link</th>
+                                                <th class="pad-left-30">Copy</th>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-20">Medical Insurance Form</td>
+                                                <td>
+                                                    <div class="font-18" id="link"><a href="{{link.url}}"
+                                                            target="_blank">
+                                                            {{link.url}}
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td> <button type="submit"
+                                                        class="btn btn-icon  btn-success btn-align font-15">
+                                                        <div ng-click="link.copylink()">
+                                                            <i class="fas fa-link"></i>
+                                                            Copy Link
+                                                        </div>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>

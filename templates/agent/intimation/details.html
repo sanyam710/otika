@@ -1,28 +1,19 @@
 <body>
+    <div class="loader" ng-if="intimation_detail.pageLoader"></div>
     <div class="main-wrapper main-wrapper-1">
         <div class="navbar-bg"></div>
-        <div class="main-content" style="padding-top: 50px ;">
+        <div class="main-content nav-pad-top">
             <section class="section">
                 <div class="section-body">
-
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4>Intimation Details</h4>
-
+                                    <h4 class="card-head-align">Intimation Details</h4>
                                 </div>
                                 <div class="card-body p-0">
                                     <div class="table-responsive">
-                                        <table class="table table-striped">
-                                            <!-- <tr>
-                                                <th>Proposal Name</th>
-                                                <th>Patient Name</th>
-                                                <th>Proposal Mobile</th>
-                                                <th>Policy Number</th>
-                                                <th>Admit Date</th>
-                                                <th>details</th>
-                                            </tr> -->
+                                        <table class="table table-striped ">
                                             <tr>
                                             <tr>
                                                 <td><strong>Proposal Name</strong></td>
@@ -66,7 +57,12 @@
                                             </tr>
                                             </tr>
                                         </table>
+
                                     </div>
+                                    <button class="btn btn-icon icon-left btn-success btn-details "
+                                        ng-click="intimation_detail.copyTable()">
+                                        <i class="fas fa-copy font-15"></i>Copy Table
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +70,50 @@
                 </div>
             </section>
         </div>
-        
     </div>
-
 </body>
+
+<table id="intimation_detail_table" style="display: none;">
+    <tr>
+    <tr>
+        <td id="td-details"><strong>Proposal Name</strong></td>
+        <td id="td-details">{{intimation_detail.list.proposal_name}}</td>
+    </tr>
+    <tr>
+        <td id="td-details"><strong>Patient Name</strong></td>
+        <td id="td-details">{{intimation_detail.list.patient_name}}</td>
+    </tr>
+    <tr>
+        <td id="td-details"><strong>Proposal Mobile Number</strong></td>
+        <td id="td-details">{{intimation_detail.list.proposal_name}}</td>
+    </tr>
+    <tr>
+        <td id="td-details"><strong>Proposal Name</strong></td>
+        <td id="td-details">{{intimation_detail.list.proposal_mobile}}</td>
+    </tr>
+    <tr>
+        <td id="td-details"><strong>Insurance Company</strong></td>
+        <td id="td-details">{{intimation_detail.list.insu_company}}</td>
+    </tr>
+    <tr>
+        <td id="td-details"><strong>Policy Number</strong></td>
+        <td id="td-details">{{intimation_detail.list.policy_number}}</td>
+    </tr>
+    <tr>
+        <td id="td-details"><strong>Admit Date</strong></td>
+        <td id="td-details">{{intimation_detail.list.admit_date}}</td>
+    </tr>
+    <tr>
+        <td id="td-details"><strong>Admit Reason</strong></td>
+        <td id="td-details">{{intimation_detail.list.admit_reason}}</td>
+    </tr>
+    <tr>
+        <td id="td-details"><strong>Hospital Name</strong></td>
+        <td id="td-details">{{intimation_detail.list.hospital_name}}</td>
+    </tr>
+    <tr>
+        <td id="td-details"><strong>Hospital Address</strong></td>
+        <td id="td-details">{{intimation_detail.list.hospital_address}}</td>
+    </tr>
+    </tr>
+</table>

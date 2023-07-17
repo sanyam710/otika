@@ -37,15 +37,22 @@ angular.module("AgentHelp").controller("FormUserCtrl", ["$scope", "AdminService"
         },
         saveUser: function () {
             this.btnLoader = true;
-            AdminService.dashboard.saveUser(this.info, (error, data) => {
-                this.btnLoader = false;
-                if (error) {
-                    $scope.toast.show(error, "error");
-                    return;
-                }
-                $scope.toast.show("New User was added!", "success");
-                window.location.href="/landing.html#!/admin/users";
-            })
+            if (this.info.mobile_no.length < 10) {
+                $scope.toast.show("Phone Number Is Incorrect", "error");
+
+
+            }
+            else {
+                AdminService.dashboard.saveUser(this.info, (error, data) => {
+                    this.btnLoader = false;
+                    if (error) {
+                        $scope.toast.show(error, "error");
+                        return;
+                    }
+                    $scope.toast.show("New User was added!", "success");
+                    window.location.href = "/landing.html#!/admin/users";
+                })
+            }
         }
     }
 

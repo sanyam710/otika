@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="/app/assets/css/style.css">
     <link rel='shortcut icon' type='image/x-icon' href='/app/assets/img/favicon.ico' />
     <script src="/env/vars.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+    <script src="lib/swal.js"></script>
 </head>
 
 <script>
@@ -90,7 +90,7 @@
         $scope.validateForm = function () {
             if ($scope.intimation_form.$valid) {
                 $scope.intimation_form.info.admit_date = new Date($scope.intimation_form.info.admit_date);
-                $scope.intimation_form.info.admit_date.setHours(10);;
+                $scope.intimation_form.info.admit_date.setHours(10);
                 var mobile = $scope.intimation_form.info.proposal_mobile;
                 mobile.toString();
                 if ($scope.intimation_form.info.admit_date > $scope.maxDate) { }

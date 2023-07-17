@@ -1,0 +1,97 @@
+label{
+    font-size: 15px !important;
+    
+}
+
+#tab-details, #th-details, #td-details {
+    border: 1px solid black !important;
+    border-collapse: collapse !important;
+    width: 180px;
+    padding-left: 10px;
+}
+
+.nav-pad-top{
+    padding-top:50px !important ;
+}
+
+.nav-ele-pad-left{
+    padding-left:15px !important ;
+    cursor: pointer !important;
+    
+}
+
+.card-head-align{
+    margin-left:-14px;
+    font-size: 20px !important;
+}
+
+.font-15{
+    font-size: 15px !important;
+}
+
+.btn-align
+{
+    margin-right: 20px;
+}
+
+.pad-left{
+    padding-left: 300px !important;
+}
+
+.btn-details{
+    margin-bottom: 20px !important;
+     margin-left: 20px !important; 
+     padding-left: 16px !important; 
+     font-size: 15px !important;
+}
+.pad-left-30
+{
+    padding-left: 30px !important;
+}
+
+.height-40{
+   height: 40px;
+}
+
+.height-50{
+    height: 50px;
+ }
+
+.btn-draft{
+    padding-left: 30px !important; 
+    padding-right: 30px !important;
+}
+
+.btn-discard{
+    padding-left: 21px !important; 
+    padding-right: 21px !important;
+
+}
+
+.logout-nav{
+    position:fixed;
+    bottom: 40px;
+}
+
+.logout-pad{
+   padding-right: 126px;
+}
+
+.font-20{
+    font-size: 20px;
+}
+
+.font-18{
+    font-size: 18px;
+}
+
+.btn-scale-pad{
+    transform: scale(1.4) ;
+    padding-right: 19px ;
+}
+
+.btn-profile-save{
+    transform: scale(1.5) ; 
+    padding-right: 3px;
+
+}
